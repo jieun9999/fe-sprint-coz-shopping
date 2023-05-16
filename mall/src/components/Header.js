@@ -20,7 +20,7 @@ export const HeaderContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0rem 8rem;
+    padding: 0.001rem 8rem;
   }
 
    .logo {
