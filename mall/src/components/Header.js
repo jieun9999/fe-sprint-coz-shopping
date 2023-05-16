@@ -41,6 +41,7 @@ export const HeaderContainer = styled.div`
    button {
     border: none;
     background-color: white;
+    cursor: pointer;
   }
 `
 
