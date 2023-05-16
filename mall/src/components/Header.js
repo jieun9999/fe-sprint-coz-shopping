@@ -1,17 +1,64 @@
 import React from "react";
+import logo from "../img/로고.png"
+import icon from "../img/아이콘.png"
+import styled from "styled-components";
+
+export const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
+
+  div#nav-body {
+  width: 100%;
+  }
+
+   h1 {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 8rem;
+  }
+
+   .logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 2rem;
+  }
+
+   span {
+    margin-right: 55rem;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 88.02%;
+    color: #000000;
+  }
+
+   button {
+    border: none;
+    background-color: white;
+  }
+`
+
+
 
 function Header() {
     return(
+        <HeaderContainer>
         <div id="nav-body">
         <h1 id="title">
-            <img src="" alt="logo"></img>
+        <img className ="logo" src={logo} alt='logo'/>
             <span id="name">COZ Shopping</span>
             <button>
-                <img src="../img/아이콘.png" alt="icon"></img>
+                <img src={icon} alt="icon"></img>
             </button>
         </h1>
-
         </div>
+        </HeaderContainer>
     )
 
     
