@@ -39,7 +39,7 @@ function Productslist(){
 
     useEffect(() => {
         axios
-          .get('http://cozshopping.codestates-seb.link/api/v1/products?count=4')
+          .get('http://cozshopping.codestates-seb.link/api/v1/products')
           .then(response => {
             console.log(response.data); // 받은 데이터 확인
             setProducts(response.data); // 받은 데이터로 products 상태 업데이트
