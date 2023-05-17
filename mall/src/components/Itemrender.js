@@ -1,5 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 
+export const BrandContainer = styled.div`
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom:-1.7rem;
+
+`;
    function Itemrender({products, setSelectedProductId}){
     let renderedItems = [];
   
@@ -13,8 +26,11 @@ import React from "react";
       renderedItems.push(
          <div key={products[i].id}>
           <img onClick={()=> openModal(products[i].id)} src={products[i].brand_image_url} alt="img" width ="260rem" height="200rem"></img>
+          <BrandContainer>
           <h3>{products[i].brand_name}</h3>
-          <p>{products[i].follwer}</p>
+          <p>관심고객수</p>
+          </BrandContainer>
+          <p style={{textAlign:"right"}}className="product_follower">{products[i].follower}</p>
         </div>)}
     else if(products[i].type ==="Exhibition"){
       renderedItems.push(

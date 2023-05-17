@@ -9,8 +9,60 @@ import Itemrender from "../components/Itemrender";
 import { useEffect,useState } from "react";
 import axios from "axios";
 
+export const ItemContainer =styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+flex-wrap: wrap;
 
+img{
+  border-radius: 12px;
+  width: 20vw;
+}
 
+h3 {
+font-family: 'Inter';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 19px;
+display: flex;
+align-items: center;
+
+color: #000000;
+}
+
+.sub_title{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+margin-top: -1vh;
+}
+
+.price {
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+text-align: right;
+color: #000000;
+margin-top: -1vh;
+}
+
+.title_discount{
+  display:flex;
+  justify-content:space-between;
+  > p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  color: #452CDD;
+  }
+}
+
+`
 export const TopButtons = styled.div`
 display: flex;
 flex-direction: row;
@@ -73,7 +125,9 @@ return(
     <span>브랜드</span>
     </button>
     </TopButtons>
+    <ItemContainer>
     <Itemrender products={products} setSelectedProductId={setSelectedProductId}/>
+    </ItemContainer>
     </>
 )
 }
