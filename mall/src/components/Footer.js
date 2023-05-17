@@ -11,6 +11,7 @@ width: 100%;
 background: #FFFFFF;
 border-top: 1px solid rgba(0, 0, 0, 0.1);
 
+
  .lineone {
 position: absolute;
 left: 44.14%;
@@ -21,6 +22,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 12px;
 line-height: 88.02%;
+
  }
 
  .linetwo {
@@ -33,6 +35,7 @@ font-weight: 400;
 font-size: 12px;
 line-height: 88.02%;
 margin-top: 7rem;
+
  }
 `
 

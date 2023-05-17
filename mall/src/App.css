@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.alignbox{
+  display: flex;
+  align-items: end; /* 수정: 오른쪽 정렬 */
+  justify-content: end; /* 수정: 오른쪽 정렬 */
+}
+
+.alignbox2{
+  margin-left: 10rem;
+}

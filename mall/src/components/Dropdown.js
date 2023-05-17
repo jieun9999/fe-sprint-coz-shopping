@@ -2,18 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 export const Bigbox = styled.div`
+max-height: 18.5vh;
 display: flex;
 flex-direction: column;
-align-items: end;
-margin-right: 5vw;
-padding: 0px;
 position: absolute;
-left: 0%;
-right: 0%;
 top: 5.5rem;
 bottom: 0%;
 background: #FFFFFF;
 border-radius: 12px;
+padding-right: 4rem;
 
 #box1 {
 display:flex;
@@ -64,7 +61,6 @@ function Dropdown(){
     <div id ="box2">🎁 상품리스트 페이지</div>
     <div id ="box3">⭐️ 북마크 페이지</div>
     </Bigbox>
-
     )
 }
 

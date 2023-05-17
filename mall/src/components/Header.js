@@ -4,6 +4,7 @@ import icon from "../img/아이콘.png"
 import styled from "styled-components";
 import Dropdown from "./Dropdown";
 import { useState } from "react";
+import '../App.css';
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -58,6 +59,7 @@ function Header() {
    };
 
     return(
+       <>
         <HeaderContainer>
         <div id="nav-body">
         <h1 id="title">
@@ -68,8 +70,11 @@ function Header() {
             </button>
         </h1>
         </div>
-        {isOpen ? <Dropdown/> : null}
         </HeaderContainer>
+        <div className ='alignbox'>
+        {isOpen ? <Dropdown/> : null}
+        </div>
+        </>
     )
 
     
