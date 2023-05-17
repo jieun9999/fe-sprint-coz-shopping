@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Dropdown from "./Dropdown";
 import { useState } from "react";
 import '../App.css';
+import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -64,7 +65,7 @@ function Header() {
         <div id="nav-body">
         <h1 id="title">
         <img className ="logo" src={logo} alt='logo'/>
-            <span id="name">COZ Shopping</span>
+            <Link to ="/" style={{ textDecoration:"none", color: "black"}}><span id="name">COZ Shopping</span></Link>
             <button onClick={openModalHandler}>
                 <img src={icon} alt="icon"></img>
             </button>
