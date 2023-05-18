@@ -39,10 +39,26 @@
 
 .alignbox{
   display: flex;
-  align-items: end; /* 수정: 오른쪽 정렬 */
-  justify-content: end; /* 수정: 오른쪽 정렬 */
+  align-items: flex-end; /* 수정: 오른쪽 정렬 */
+  justify-content: flex-end; /* 수정: 오른쪽 정렬 */
 }
 
 .alignbox2{
   margin-left: 10rem;
+}
+.button_active{
+  color: #412DD4;
+  font-weight: 700;
+  line-height: 19px;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+.button_active:hover {
+  cursor: pointer;
+
+}
+
+.button_normal:hover {
+  cursor: pointer;
 }
