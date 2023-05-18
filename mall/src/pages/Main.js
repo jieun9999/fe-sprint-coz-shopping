@@ -4,6 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 import '../App.css';
 import Modal from "../components/Modal";
+import Itemrender from "../components/Itemrender";
 
 
 export const Itemlistalignment =styled.div`
@@ -60,51 +61,6 @@ margin-top: -1vh;
 }
 `
 
-function Itemrender({products, setSelectedProductId}){
-  let renderedItems = [];
-
-  const openModal =(productId)=>{
-    setSelectedProductId(productId)
-  };
-
-  if(products.length > 0){
-  for(let i = 0; i < products.length; i++){
-  if(products[i].type ==='Brand'){
-    renderedItems.push(
-       <div key={products[i].id}>
-        <img onClick={()=> openModal(products[i].id)} src={products[i].brand_image_url} alt="img" width ="260rem" height="200rem"></img>
-        <h3>{products[i].brand_name}</h3>
-        <p>{products[i].follwer}</p>
-      </div>)}
-  else if(products[i].type ==="Exhibition"){
-    renderedItems.push(
-    <div key={products[i].id}>
-      <img onClick={()=> openModal(products[i].id)} src={products[i].image_url} alt="img" width ="260rem" height="200rem"></img>
-      <h3>{products[i].title}</h3>
-      <p className="sub_title">{products[i].sub_title}</p>
-    </div>)}
-    else if(products[i].type ==="Product"){
-      renderedItems.push(
-      <div key={products[i].id}>
-      <img onClick={()=> openModal(products[i].id)} src={products[i].image_url} alt="img" width ="260rem" height="200rem"></img>
-      <div className="title_discount">
-      <h3>{products[i].title}</h3>
-      <p>{products[i].discountPercentage}%</p>
-      </div>
-      <p className="price">{products[i].price}원</p>
-      </div>)}
-      else if(products[i].type ==="Category"){
-        renderedItems.push(
-          <div key={products[i].id}>
-          <img onClick={()=> openModal(products[i].id)} src={products[i].image_url} alt="img" width ="260rem" height="200rem"></img>
-          <h3># {products[i].title}</h3>
-          </div>)
-      }
-  }
-  return renderedItems;
-}
-}
-
 function Main() {
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
@@ -129,7 +85,7 @@ function Main() {
     <Itemlistalignment>
     <Itemrender products={products} setSelectedProductId={setSelectedProductId}/>
     </Itemlistalignment>
-    <Modal products={products} setSelectedProductId={setSelectedProductId} selectedProductId={selectedProductId}/>
+    <Modal products={products} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId}/>
     <div className="alignbox2">
      <h2>북마크 리스트</h2>
     </div>

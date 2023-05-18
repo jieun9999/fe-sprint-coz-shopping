@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Bigbox = styled.div`
 max-height: 18.5vh;
@@ -38,6 +39,7 @@ flex-grow: 0;
 box-sizing: border-box;
 border: 1px solid rgba(0, 0, 0, 0.1);
 border-bottom: 0px;
+
 }
 
 #box3{
@@ -58,8 +60,8 @@ function Dropdown(){
     return(
     <Bigbox>
     <div id ="box1">OOO님, 안녕하세요!</div>
-    <div id ="box2">🎁 상품리스트 페이지</div>
-    <div id ="box3">⭐️ 북마크 페이지</div>
+    <Link to ="/products/list" style={{ textDecoration:"none", color: "black"}}><div id ="box2">🎁 상품리스트 페이지</div></Link>
+    <Link to ="/bookmark" style={{ textDecoration:"none", color: "black"}}><div id ="box3">⭐️ 북마크 페이지</div></Link>
     </Bigbox>
     )
 }
