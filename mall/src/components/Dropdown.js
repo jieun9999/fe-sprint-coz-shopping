@@ -12,6 +12,7 @@ bottom: 0%;
 background: #FFFFFF;
 border-radius: 12px;
 padding-right: 4rem;
+z-index: 9999;
 
 #box1 {
 display:flex;

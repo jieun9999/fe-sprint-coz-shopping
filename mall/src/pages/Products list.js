@@ -5,17 +5,24 @@ import TopButtons from "../components/TopButtons";
 import { useEffect,useState } from "react";
 import axios from "axios";
 import Modal from "../components/Modal";
+import BookmarkToast from "../components/BookmarkToast";
+import '../App.css';
+
+export const BookmarkContainer = styled.div`
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index:20000;
+`;
 
 export const ItemContainer =styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-evenly;
 flex-wrap: wrap;
+max-width: calc(20vw * 4);
+margin: 0 auto;
 
-img{
-  border-radius: 12px;
-  width: 20vw;
-}
 
 h3 {
 font-family: 'Inter';
@@ -86,6 +93,7 @@ function Productslist(){
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [buttonType, setButtonType] = useState('All')
+  const [isOnToast, setIsOnToast] = useState(null);
   
   
   useEffect(() => {
@@ -106,9 +114,12 @@ return(
     <TopButtons buttonType={buttonType} products={products} setButtonType={setButtonType}/>
     </TopButtonsContainer>
     <ItemContainer>
-    <ItemByButtons buttonType={buttonType} products={products} setSelectedProductId={setSelectedProductId}/>
+    <ItemByButtons buttonType={buttonType} products={products} setSelectedProductId={setSelectedProductId} isOnToast={isOnToast} setIsOnToast={setIsOnToast}/>
     </ItemContainer>
-    <Modal products={products} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId}/>
+    <Modal products={products} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId} isOnToast={isOnToast} setIsOnToast={setIsOnToast}/>
+    <BookmarkContainer>
+    {isOnToast === null ? null : <BookmarkToast isOnToast={isOnToast}/>}
+    </BookmarkContainer>
     </>
 )
 }

@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 101vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,6 +46,7 @@
 .alignbox2{
   margin-left: 10rem;
 }
+
 .button_active{
   color: #412DD4;
   font-weight: 700;
@@ -61,4 +62,29 @@
 
 .button_normal:hover {
   cursor: pointer;
+}
+
+.BookmarkContainer{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 100px;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.bookmark-toast-add{
+  animation: fade-in 1s ease-in-out;
+  z-index:12000;
+}
+
+.bookmark-toast-remove{
+  animation: fade-in 1s ease-in-out;
+  z-index:12000;
 }

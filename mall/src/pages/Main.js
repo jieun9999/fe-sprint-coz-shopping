@@ -5,7 +5,7 @@ import styled from "styled-components";
 import '../App.css';
 import Modal from "../components/Modal";
 import Itemrender from "../components/Itemrender";
-
+import BookmarkToast from "../components/BookmarkToast";
 
 export const Itemlistalignment =styled.div`
 display:flex;
@@ -64,6 +64,7 @@ margin-top: -1vh;
 function Main() {
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
+  const [isOnToast, setIsOnToast] = useState(null);
 
   useEffect(() => {
     axios
@@ -83,11 +84,14 @@ function Main() {
     <h2>상품 리스트</h2>
     </div>
     <Itemlistalignment>
-    <Itemrender products={products} setSelectedProductId={setSelectedProductId}/>
+    <Itemrender products={products} setSelectedProductId={setSelectedProductId} isOnToast={isOnToast} setIsOnToast={setIsOnToast}/>
     </Itemlistalignment>
-    <Modal products={products} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId}/>
+    <Modal products={products} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId} isOnToast={isOnToast} setIsOnToast={setIsOnToast}/>
     <div className="alignbox2">
      <h2>북마크 리스트</h2>
+    </div>
+    <div className="BookmarkContainer">
+    {isOnToast === null ? null : <BookmarkToast isOnToast={isOnToast}/>}
     </div>
     </>
   );
