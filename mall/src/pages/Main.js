@@ -1,11 +1,11 @@
-import { useState,useEffect } from "react";
 import React from "react";
-import axios from "axios";
 import styled from "styled-components";
 import '../App.css';
-import Modal from "../components/Modal";
 import Itemrender from "../components/Itemrender";
-
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import Bookmarkrender from "../components/Bookmarkrender";
 
 export const Itemlistalignment =styled.div`
 display:flex;
@@ -61,9 +61,10 @@ margin-top: -1vh;
 }
 `
 
-function Main() {
+function Main({bookmarks, setBookmarks}) {
   const [products, setProducts] = useState([]);
   const [selectedProductId, setSelectedProductId] = useState(null);
+
 
   useEffect(() => {
     axios
@@ -77,18 +78,21 @@ function Main() {
       });
   }, []);
 
+
   return (
     <>
     <div className="alignbox2">
     <h2>상품 리스트</h2>
     </div>
     <Itemlistalignment>
-    <Itemrender products={products} setSelectedProductId={setSelectedProductId}/>
+    <Itemrender products={products} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId} bookmarks={bookmarks}/>
     </Itemlistalignment>
-    <Modal products={products} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId}/>
     <div className="alignbox2">
      <h2>북마크 리스트</h2>
     </div>
+     <Itemlistalignment>
+    <Bookmarkrender bookmarks={bookmarks} setBookmarks={setBookmarks} setSelectedProductId={setSelectedProductId}/>
+     </Itemlistalignment>
     </>
   );
 }

@@ -1,8 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import imgOff from "../img/북마크 아이콘 - off.png";
+import imgOn from "../img/북마크 아이콘 - on.png";
 import '../App.css';
-import ModalnonBookmark from "../components/ModalnonBookmark";
+
+export const BookmarkContainer =styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  
+  > div:nth-child(n+5){
+    display:none;
+  }
+`;
 
 export const IconContainer = styled.div`
 position: absolute;
@@ -18,6 +27,8 @@ background-size:cover;
 width: 260px;
 height: 200px;
 border-radius: 10%;
+
+
 `;
 
 
@@ -33,25 +44,24 @@ export const BrandContainer = styled.div`
     margin-bottom:-1.7rem;
 
 `;
-   function Itemrender({products, setSelectedProductId, selectedProductId, bookmarks}){
+   function Bookmarkrender({bookmarks, setSelectedProductId, selectedProductId,products}){
 
     const openModal =(productId)=>{
       setSelectedProductId(productId)
     };
 
-    if (!products) {
-      return null;
-    }
+  
 
     return(
       <>
-      {products.map((product, index)=> {
+      <BookmarkContainer>
+      {bookmarks.map((product, index)=> {
       if(product.type ==='Brand'){
         return(
            <div key={product.id}>
             <ImgContainer imageurl ={product.brand_image_url} onClick={()=> openModal(product.id)} >
             <IconContainer>
-            <img src ={imgOff} alt="img" width="25px" height="25px"/>
+            <img src ={imgOn} alt="img" width="25px" height="25px"/>
             </IconContainer>
             </ImgContainer>
             <BrandContainer>
@@ -65,7 +75,7 @@ export const BrandContainer = styled.div`
             <div key={product.id}>
               <ImgContainer imageurl={product.image_url} onClick={()=> openModal(product.id)}>
                 <IconContainer>
-                <img src ={imgOff} alt="img" width="25px" height="25px"/>
+                <img src ={imgOn} alt="img" width="25px" height="25px"/>
                 </IconContainer>
               </ImgContainer>
               <h3>{product.title}</h3>
@@ -76,7 +86,7 @@ export const BrandContainer = styled.div`
               <div key={product.id}>
               <ImgContainer onClick={()=> openModal(product.id)} imageurl={product.image_url}>
                <IconContainer>
-                <img src ={imgOff} alt="img" width="25px" height="25px"/>
+                <img src ={imgOn} alt="img" width="25px" height="25px"/>
                 </IconContainer>
               </ImgContainer>
               <div className="title_discount">
@@ -90,7 +100,7 @@ export const BrandContainer = styled.div`
                   <div key={product.id}>
                   <ImgContainer onClick={()=> openModal(product.id)} imageurl={product.image_url}>
                   <IconContainer>
-                   <img src ={imgOff} alt="img" width="25px" height="25px"/>
+                   <img src ={imgOn} alt="img" width="25px" height="25px"/>
                   </IconContainer>
                   </ImgContainer>
                   <h3># {product.title}</h3>
@@ -99,8 +109,9 @@ export const BrandContainer = styled.div`
               }
               return null;
     })}
-      <ModalnonBookmark products={products} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId} bookmarks={bookmarks}/>
+      </BookmarkContainer>
+     
       </>
     )
   }
-  export default Itemrender;
+  export default Bookmarkrender;

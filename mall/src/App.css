@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 101vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,10 +39,52 @@
 
 .alignbox{
   display: flex;
-  align-items: end; /* 수정: 오른쪽 정렬 */
-  justify-content: end; /* 수정: 오른쪽 정렬 */
+  align-items: flex-end; /* 수정: 오른쪽 정렬 */
+  justify-content: flex-end; /* 수정: 오른쪽 정렬 */
 }
 
 .alignbox2{
   margin-left: 10rem;
+}
+
+.button_active{
+  color: #412DD4;
+  font-weight: 700;
+  line-height: 19px;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+.button_active:hover {
+  cursor: pointer;
+
+}
+
+.button_normal:hover {
+  cursor: pointer;
+}
+
+.BookmarkContainer{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 100px;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.bookmark-toast-add{
+  animation: fade-in 1s ease-in-out;
+  z-index:12000;
+}
+
+.bookmark-toast-remove{
+  animation: fade-in 1s ease-in-out;
+  z-index:12000;
 }
