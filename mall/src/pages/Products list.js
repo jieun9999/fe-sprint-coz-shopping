@@ -2,11 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import ItemByButtons from "../components/ItemByButtons";
 import TopButtons from "../components/TopButtons";
-import { useEffect,useState } from "react";
-import axios from "axios";
-import Modal from "../components/Modal";
 import BookmarkToast from "../components/BookmarkToast";
 import '../App.css';
+import { useState } from "react";
 
 export const BookmarkContainer = styled.div`
 position: fixed;
@@ -88,37 +86,28 @@ margin-top: 10px;
 }
 `;
 
-function Productslist(){
+function Productslist
+({products, isOnToast, setIsOnToast,setButtonType,buttonType, 
+  bookmarks, setBookmarks, filteredProducts, handleIconClick,
+  addBookmark, removeBookmark, handleIconClickAllType,starList, setStarList}){
 
-  const [products, setProducts] = useState([]);
-  const [selectedProductId, setSelectedProductId] = useState(null);
-  const [buttonType, setButtonType] = useState('All')
-  const [isOnToast, setIsOnToast] = useState(null);
+    const [selectedProductId, setSelectedProductId] = useState(null);
   
-  
-  useEffect(() => {
-        axios
-          .get('http://cozshopping.codestates-seb.link/api/v1/products')
-          .then(response => {
-            console.log(response.data); // 받은 데이터 확인
-            setProducts(response.data); // 받은 데이터로 products 상태 업데이트
-          })
-          .catch(error => {
-            console.log("에러:", error);
-          });
-      }, []);
-
 return(
     <>
     <TopButtonsContainer>
     <TopButtons buttonType={buttonType} products={products} setButtonType={setButtonType}/>
     </TopButtonsContainer>
     <ItemContainer>
-    <ItemByButtons buttonType={buttonType} products={products} setSelectedProductId={setSelectedProductId} isOnToast={isOnToast} setIsOnToast={setIsOnToast}/>
+    <ItemByButtons 
+    buttonType={buttonType} products={products} isOnToast={isOnToast} 
+    setIsOnToast={setIsOnToast} filteredProducts={filteredProducts} handleIconClick={handleIconClick}
+    bookmarks={bookmarks} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId}
+    handleIconClickAllType={handleIconClickAllType} addBookmark={addBookmark} removeBookmark={removeBookmark}
+    starList={starList} setStarList={setStarList}/>
     </ItemContainer>
-    <Modal products={products} selectedProductId={selectedProductId} setSelectedProductId={setSelectedProductId} isOnToast={isOnToast} setIsOnToast={setIsOnToast}/>
     <BookmarkContainer>
-    {isOnToast === null ? null : <BookmarkToast isOnToast={isOnToast}/>}
+    {isOnToast === null ? null : <BookmarkToast starList ={starList} isOnToast={isOnToast}/>}
     </BookmarkContainer>
     </>
 )

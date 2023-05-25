@@ -6,7 +6,7 @@ import button_브랜드 from "../img/브랜드.png"
 import { useState } from "react";
 import "../App.css";
 
-function TopButtons({ buttonType, setButtonType}){
+function TopButtons({setButtonType}){
 
     const [isActive, setIsActive] = useState([true, false, false, false, false]);
 

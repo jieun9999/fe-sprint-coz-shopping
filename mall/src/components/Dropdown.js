@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 export const Bigbox = styled.div`
-max-height: 18.5vh;
+max-height: 19.5vh;
 display: flex;
 flex-direction: column;
 position: absolute;
@@ -26,6 +26,7 @@ flex-grow: 0;
 box-sizing: border-box;
 border: 1px solid rgba(0, 0, 0, 0.1);
 border-bottom: 0px;
+
 }
 
 #box2{
@@ -54,6 +55,7 @@ order: 1;
 flex-grow: 0;
 box-sizing: border-box;
 border: 1px solid rgba(0, 0, 0, 0.1);
+
 }
 `
 
