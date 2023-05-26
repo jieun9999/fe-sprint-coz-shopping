@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import TopButtons from "../components/TopButtons";
-import BookmarkToast from "../components/BookmarkToast";
+import TopButtons from "../components/TopButtons/TopButtons";
+import BookmarkToast from "../components/BookmarkToast/BookmarkToast";
 import '../App.css';
 import { useState } from "react";
 import BookmarkList  from "../components/BookmarkList";

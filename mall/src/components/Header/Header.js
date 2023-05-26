@@ -1,10 +1,10 @@
 import React from "react";
-import logo from "../img/로고.png"
-import icon from "../img/아이콘.png"
+import logo from "../.././img/로고.png";
+import icon from "../.././img/아이콘.png"
 import styled from "styled-components";
-import Dropdown from "./Dropdown";
+import Dropdown from "../Dropdown";
 import { useState } from "react";
-import '../App.css';
+import '../.././App.css';
 import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
@@ -32,15 +32,6 @@ export const HeaderContainer = styled.div`
     margin-left: 2rem;
   }
 
-   span {
-    margin-right: 55rem;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 88.02%;
-    color: #000000;
-  }
 
    button {
     border: none;
@@ -65,7 +56,7 @@ function Header() {
         <div id="nav-body">
         <h1 id="title">
         <img className ="logo" src={logo} alt='logo'/>
-            <Link to ="/" style={{ textDecoration:"none", color: "black"}}><span id="name">COZ Shopping</span></Link>
+            <Link to ="/" style={{ textDecoration:"none", color: "black", marginRight:"60%"}}><div id="name">COZ Shopping</div></Link>
             <button onClick={openModalHandler}>
                 <img src={icon} alt="icon"></img>
             </button>

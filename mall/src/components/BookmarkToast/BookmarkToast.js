@@ -1,18 +1,19 @@
-import bookmarkAdd from "../img/2Property 1=Add to Bookmark.png";
-import bookmarkRemove from "../img/2Property 1=Remove from Bookmark.png";
-import '../App.css';
+import bookmarkAdd from "../.././img/2Property 1=Add to Bookmark.png";
+import bookmarkRemove from "../.././img/2Property 1=Remove from Bookmark.png";
+import '../.././App.css';
 import { useEffect, useState } from "react";
 
 function BookmarkToast({isOnToast, starList}){
- const [showToast, setShowToast]= useState(false);
+ const [showToast, setShowToast]= useState(true);
 
  useEffect(()=>{
     setShowToast(true);
     const timer = setTimeout(()=>{
       setShowToast(false);
-    },1000);
+    },3000);
     return () => clearTimeout(timer);
  },[starList]);
+
 
   return(
   <>
